@@ -1,10 +1,10 @@
 'use strict';
 
-// "querySelector" and "getElementById" both are selectors
-
 // slecting elements
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
+const name0El = document.getElementById('name--0');
+const name1El = document.getElementById('name--1');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
 const player0El = document.querySelector('.player--0');
@@ -86,6 +86,13 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
+
+      //winning status
+      document.getElementById(`name--${activePlayer}`).textContent =
+        '🎉WINNER🎉';
+      document.getElementById(
+        `name--${activePlayer == 0 ? 1 : 0}`
+      ).textContent = '🐷PIG🐷';
     } else {
       playerSwitch();
     }
